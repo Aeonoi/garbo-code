@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script is intentionally ugly and poorly written.
-# It shuffles a list of languages and executes a corresponding script for each.
+# It shuffles a list of languages and executes a corresponding binary.
 
 # Define an array of languages
 langs=("cpp" "py" "js" "go" "rs" "zig" "java" "hs" "pl" "scm" "ml" "c" "ts" "perl" "vim" "lua")
