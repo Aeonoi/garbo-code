@@ -1,5 +1,5 @@
 #!/bin/bash
-# cpp.sh
+# zig.sh
 
 # Read the combined input
 read combined_data
@@ -11,8 +11,8 @@ lang_array_str=$(echo "$combined_data" | cut -d'^' -f2)
 # Split language array string into individual languages
 IFS='|' read -r -a langs <<< "$lang_array_str"
 
-# Execute C++ code with original input
-echo "$inpt" | g++ -o a.out cpp.cpp && ./a.out
+# Execute Zig code with original input
+echo "$inpt" | zig run zig.zig
 
 # If there are more languages, pipe remaining to the next script
 if [ ${#langs[@]} -gt 1 ]; then

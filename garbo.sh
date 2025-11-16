@@ -4,7 +4,7 @@
 # It shuffles a list of languages and executes a corresponding script for each.
 
 # Define an array of languages
-langs=("cpp" "py" "js")
+langs=("cpp" "py" "js" "go" "rs" "zig" "java" "hs" "pl" "scm" "ml" "c" "ts" "perl" "vim" "lua")
 
 # Shuffle the array (ugliest way possible)
 for (( i=${#langs[@]}-1; i>0; i-- )); do
@@ -21,7 +21,14 @@ else
     inpt="$1"
 fi
 
-# Loop through shuffled languages and execute their scripts
-for lang in "${langs[@]}"; do
-    echo "$inpt" | ./"$lang".sh
-done
+
+# Join the shuffled languages with a separator
+all_langs=$(printf "%s|" "${langs[@]}")
+all_langs=${all_langs%|} # Remove trailing separator
+
+# Combine input and languages with another separator
+combined_data="${inpt}^${all_langs}"
+
+# Pipe combined data to the first language script
+echo "$combined_data" | ./"${langs[0]}".sh
+
