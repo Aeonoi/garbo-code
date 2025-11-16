@@ -4,7 +4,7 @@
 # It shuffles a list of languages and executes a corresponding script for each.
 
 # Define an array of languages
-langs=("cpp" "py" "js")
+langs=("cpp" "py" "js" "go" "rs" "zig" "java" "hs" "pl" "scm" "ml" "c" "ts" "perl" "vim" "lua")
 
 # Shuffle the array (ugliest way possible)
 for (( i=${#langs[@]}-1; i>0; i-- )); do
@@ -23,6 +23,11 @@ fi
 
 # Loop through shuffled languages and execute their scripts
 for lang in "${langs[@]}"; do
+    cat "$lang".sh
     echo "$inpt" | ./"$lang".sh
 done
 
+cd ./HackRPI-2025/
+make
+
+./asteroids  $inpt
