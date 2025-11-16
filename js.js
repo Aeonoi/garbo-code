@@ -1,9 +1,11 @@
-let inputData = '';
+const readline = require('readline');
 
-process.stdin.on('data', (chunk) => {
-  inputData += chunk;
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
 });
 
-process.stdin.on('end', () => {
-  console.log(inputData.trim());
+rl.on('line', (input) => {
+  console.log(input);
+  rl.close();
 });

@@ -4,3 +4,4 @@ use warnings;
 
 my $line = <STDIN>;
 print $line;
+
